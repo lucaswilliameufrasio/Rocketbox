@@ -23,6 +23,10 @@ export default class Box extends Component {
     const box = this.props.match.params.id;
     const response = await api.get(`boxes/${box}`);
 
+    if (response.data === null || response.data === undefined) {
+      this.props.history.push("/");
+    }
+    
     this.setState({ box: response.data });
   }
 
