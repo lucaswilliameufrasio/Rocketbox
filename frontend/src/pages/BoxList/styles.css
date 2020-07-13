@@ -1,0 +1,36 @@
+#loading {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#loading strong {
+    align-self: center;
+    margin-right: 10px;
+}
+
+#main-container {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#main-container div+div {
+    margin-top: 30px;
+}
+
+#main-container div+div ul {
+    width: 500px;
+}
+
+#main-container div+div ul li a{
+    font-size: 15px;
+    color: #5f5c5c;
+}
+
+#main-container div+div ul li span{
+    font-size: 14px;
+    color: #5f5c5c;
+}
