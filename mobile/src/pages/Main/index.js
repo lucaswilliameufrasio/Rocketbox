@@ -44,13 +44,18 @@ export default class Main extends Component {
   }
 
   handleSignIn = async () => {
-    const response = await api.post('boxes', {
-      title: this.state.newBox,
-    });
+    try {
+      console.log(api.defaults);
+      const response = await api.post('boxes', {
+        title: this.state.newBox,
+      });
 
-    await AsyncStorage.setItem('@RocketBox:box', response.data._id);
+      await AsyncStorage.setItem('@RocketBox:box', response.data._id);
 
-    this.props.navigation.navigate('Box');
+      this.props.navigation.navigate('Box');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
@@ -75,7 +80,7 @@ export default class Main extends Component {
           autoCorrect={false}
           underlineColorAndroid="transparent"
           value={this.state.newBox}
-          onChangeText={(text) => this.setState({newBox: text})}
+          onChangeText={text => this.setState({newBox: text})}
         />
 
         <TouchableOpacity onPress={this.handleSignIn} style={styles.button}>
