@@ -27,7 +27,6 @@ export default class Box extends Component {
       this.subscribeToNewFiles(box);
 
       const response = await api.get(`boxes/${box}`);
-      console.log('pra que ?');
       this.setState({box: response.data});
     }
   }
